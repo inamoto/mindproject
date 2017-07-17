@@ -53,6 +53,8 @@ $response = $kernel->handle(
     $request = Illuminate\Http\Request::capture()
 );
 
+echo "aho";
+
 $response->send();
 
 $kernel->terminate($request, $response);
