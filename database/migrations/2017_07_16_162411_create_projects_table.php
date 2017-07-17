@@ -13,7 +13,15 @@ class CreateProjectsTable extends Migration
      */
     public function up()
     {
-        //
+         Schema::create('projects', function (Blueprint $table) {
+            $table->increments('id');
+            $table->text('uuid');
+            $table->integer('userid');
+            $table->string('title');
+            $table->longText('mindmap');
+            $table->longText('gantt');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -23,6 +31,6 @@ class CreateProjectsTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('projects');
     }
 }
