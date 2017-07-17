@@ -8,6 +8,7 @@ use App\Project;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use DB;
+use App\User;
 
 class ProjectController extends Controller
 {
