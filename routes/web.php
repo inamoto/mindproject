@@ -68,3 +68,7 @@ Route::get('/', 'ProjectController@index')->middleware('auth');
 //Route::get('/', ['middleware' => 'auth','uses' => 'ProjectController@index',]);
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
