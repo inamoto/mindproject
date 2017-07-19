@@ -33,7 +33,7 @@
                                 </a>
                                 <ul class="dropdown-menu" role="menu">
                                     @if(Auth::check())
-                                        <form method="post" id="form_logout" action="logout">
+                                        <form method="post" id="form_logout" action="/mindproject/public/logout">
                                             <input type="hidden" name="_token" value="{{csrf_token()}}">
                                         </form>    
                                         <li><a href="javascript:document.getElementById('form_logout').submit();">Logout</a></li>
