@@ -17,10 +17,10 @@
                                   <li><a href="{{ url('home') }}">Dashboard</a></li>
                             @endif
                             @if(Auth::guest())
-                                  <li><a href="{{ url('auth/login') }}">Login</a></li>
+                                  <li><a href="{{ url('login') }}">Login</a></li>
                             @endif
                             @if(Auth::guest())
-                                  <li><a href="{{ url('auth/register') }}">Sign Up</a></li>
+                                  <li><a href="{{ url('register') }}">Sign Up</a></li>
                             @endif
                             
                         </ul>
