@@ -107,7 +107,7 @@ body{
   text-align: center;
   color: white;
   box-shadow: 0 0 3px rgba(0, 0, 0, .4);
-  background: rgba(170, 170, 170, .2) url("/laravel/sample/public/res/ganttSplitterGrip.png") no-repeat center center;
+  background: rgba(170, 170, 170, .2) url("/mindproject/public/res/ganttSplitterGrip.png") no-repeat center center;
   z-index: 5;
 }
 
@@ -335,7 +335,7 @@ body{
   top:0;
   position:absolute;
   width:18px;
-  background: url(/laravel/sample/public/res/milestone.png) no-repeat;
+  background: url(/mindproject/public/res/milestone.png) no-repeat;
   height:18px;
   display:none;
 }
@@ -356,7 +356,7 @@ body{
 }
 
 .taskBoxDiv .layout.extDep{
-  background-image:url(/laravel/sample/public/res/hasExternalDeps.png);
+  background-image:url(/mindproject/public/res/hasExternalDeps.png);
 }
 
 
@@ -506,12 +506,12 @@ select.taskStatus{
 }
 
 .isParent .exp-controller{
-  background-image: url(/laravel/sample/public/res/toggle_collapse.png);
+  background-image: url(/mindproject/public/res/toggle_collapse.png);
 }
 
 .isParent.collapsed .exp-controller{
   cursor: pointer;
-  background-image: url(/laravel/sample/public/res/toggle-expand.png);
+  background-image: url(/mindproject/public/res/toggle-expand.png);
 }
 
 .ui-resizable-helper { border: 1px dotted #00F;  }

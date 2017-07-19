@@ -33,7 +33,11 @@
                                 </a>
                                 <ul class="dropdown-menu" role="menu">
                                     @if(Auth::check())
-                                        <li><a href="{{ url('auth/logout') }}">Logout</a></li>
+                                        <form method="post" id="form_logout" action="logout">
+                                            <input type="hidden" name="_token" value="{{csrf_token()}}">
+                                        </form>    
+                                        <li><a href="javascript:document.getElementById('form_logout').submit();">Logout</a></li>
+                                        <!--<li><a href="{{ url('auth/logout') }}">Logout</a></li>-->
                                     @endif
                                     @if(Auth::check())
                                         <li><a href="{{url('home')}}">{{ $user['email'] }}</a></li>
@@ -73,11 +77,11 @@
                 <button type="button" class="close" data-dismiss="alert">×</button>
                 <strong>Heads up!</strong> This alert needs your attention, but it's not super important.
             </div>-->
-            <link type="text/css" rel="stylesheet" href="/laravel/sample/public/css/jsmind.css" />
+            <link type="text/css" rel="stylesheet" href="/mindproject/public/css/jsmind.css" />
            
-            <link rel=stylesheet href="/laravel/sample/public/css/platform.css" type="text/css">
-            <link rel=stylesheet href="/laravel/sample/public/css/jquery.dateField.css" type="text/css">
-            <link rel=stylesheet href="/laravel/sample/public/css/gantt.css" type="text/css">
-            <link rel=stylesheet href="/laravel/sample/public/css/ganttPrint.css" type="text/css" media="print">
-            <link rel=stylesheet href="/laravel/sample/public/css/ganttstyle.css" type="text/css">
+            <link rel=stylesheet href="/mindproject/public/css/platform.css" type="text/css">
+            <link rel=stylesheet href="/mindproject/public/css/jquery.dateField.css" type="text/css">
+            <link rel=stylesheet href="/mindproject/public/css/gantt.css" type="text/css">
+            <link rel=stylesheet href="/mindproject/public/css/ganttPrint.css" type="text/css" media="print">
+            <link rel=stylesheet href="/mindproject/public/css/ganttstyle.css" type="text/css">
         </header><!-- #header -->

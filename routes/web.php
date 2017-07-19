@@ -14,14 +14,15 @@
 Route::get('/', function () {return view('welcome');});
 
 /// ログイン・ログアウト
-Route::get('auth/login', 'Auth\AuthController@getLogin');
-Route::post('auth/login', 'Auth\AuthController@postLogin');
-Route::get('auth/logout', 'Auth\AuthController@getLogout');
- 
+//Route::get('auth/login', 'Auth\AuthController@getLogin');
+//Route::post('auth/login', 'Auth\AuthController@postLogin');
+//Route::get('auth/logout', 'Auth\AuthController@getLogout');
+//Route::get('auth/logout', ' AuthController@getLogout');
+
 /* ユーザー登録画面の表示 */
-Route::get('auth/register', 'Auth\AuthController@getRegister');
+//Route::get('auth/register', 'Auth\AuthController@getRegister');
 /* ユーザー登録処理 */
-Route::post('auth/register', 'Auth\AuthController@postRegister');
+//Route::post('auth/register', 'Auth\AuthController@postRegister');
 //会員登録後、ログイン後に飛ばされるホーム画面
 Route::get('/home', [
             'middleware' => 'auth', 
@@ -71,4 +72,4 @@ Route::get('/', 'ProjectController@index')->middleware('auth');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');

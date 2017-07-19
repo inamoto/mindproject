@@ -416,7 +416,7 @@ Ganttalendar.prototype.create = function (zoom, originalStartmillis, originalEnd
 
         //create backgound
         var extDep = svg.pattern(defs, "extDep", 0, 0, 10, 10, 0, 0, 10, 10, {patternUnits:'userSpaceOnUse'});
-        var img=svg.image(extDep, 0, 0, 10, 10, "/laravel/sample/public/res/hasExternalDeps.png",{opacity:.3});
+        var img=svg.image(extDep, 0, 0, 10, 10, "/mindproject/public/res/hasExternalDeps.png",{opacity:.3});
 
         self.svg = svg;
         $(svg).addClass("ganttSVGBox");
@@ -803,7 +803,7 @@ Ganttalendar.prototype.drawLink = function (from, to, type) {
     var p = svg.createPath();
 
     //add the arrow
-    svg.image(group, 0, 0, 5, 10, "/laravel/sample/public/res/linkArrow.png");
+    svg.image(group, 0, 0, 5, 10, "/mindproject/public/res/linkArrow.png");
     //create empty path
     svg.path(group, p, {class:"taskLinkPathSVG"});
 

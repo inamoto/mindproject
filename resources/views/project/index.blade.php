@@ -21,7 +21,7 @@
                                 <th>Created</th>
                                 <!--<th>Updated at</th>-->
                                 <th>
-                                    <form method="post" action="/laravel/sample/public/project/create">
+                                    <form method="post" action="/mindproject/public/project/create">
                                         <input type="hidden" name="_token" value="{{csrf_token()}}">
                                         <input type="submit" class="btn btn-primary btn-xL" value="+ New Project">   
                                     </form>
@@ -39,13 +39,13 @@
                                         <thead>
                                             <tr>
                                                 <td>
-                                                    <a href="/laravel/sample/public/project/editmm/{{$project->uuid}}" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-asterisk">Mindmap</i></a>
+                                                    <a href="/mindproject/public/project/editmm/{{$project->uuid}}" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-asterisk">Mindmap</i></a>
                                                 </td>
                                                 <td>
-                                                    <a href="/laravel/sample/public/project/editga/{{$project->uuid}}" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-tasks">Gantt</i></a>
+                                                    <a href="/mindproject/public/project/editga/{{$project->uuid}}" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-tasks">Gantt</i></a>
                                                 </td>
                                                 <td>
-                                                    <form method="post" name="form_destroy{{$project->id}}" id="form_destroy{{$project->id}}" action="/laravel/sample/public/project/destroy/{{$project->uuid}}">
+                                                    <form method="post" name="form_destroy{{$project->id}}" id="form_destroy{{$project->id}}" action="/mindproject/public/project/destroy/{{$project->uuid}}">
                                                         <input type="hidden" name="_token" value="{{csrf_token()}}">
                                                         <a class="btn btn-danger btn-xs" onclick=onDestroyButton({{$project->id}});><i class="glyphicon glyphicon-trash">Remove</i></a>
                                                     </form>       

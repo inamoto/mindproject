@@ -11,7 +11,7 @@
                                 <a class="btn btn-primary btn-s" id="zoom-out-button" onclick="onZoomOut()"><i class="glyphicon glyphicon-zoom-out"></i></a>
                             <td></td>
                             <td>
-                                <form method="post" name="form_save" id="form_save" action="/laravel/sample/public/project/postmm">
+                                <form method="post" name="form_save" id="form_save" action="/mindproject/public/project/postmm">
                                     <input type="hidden" name="_token" value="{{csrf_token()}}">
                                     <input type="hidden" name="title" id="title"  value="{{$project->title}}">
                                     <input type="hidden" name="mindmap" id="mindmap" value="">
@@ -21,7 +21,7 @@
                                 </form>
                             </td>
                             <td>
-                                <form method="post" name="form_toGantt" id="form_toGantt" action="/laravel/sample/public/project/toga">
+                                <form method="post" name="form_toGantt" id="form_toGantt" action="/mindproject/public/project/toga">
                                     <input type="hidden" name="_token" value="{{csrf_token()}}">
                                     <input type="hidden" name="title2" id="title2"  value="{{$project->title}}">
                                     <input type="hidden" name="mindmap2" id="mindmap2" value="">
@@ -35,8 +35,8 @@
                 <div id="container">
                     <div id="jsmind_container"></div>
                 </div>
-                <script type="text/javascript" src="/laravel/sample/public/js/jsmind.min.js"></script>
-                <script type="text/javascript" src="/laravel/sample/public/js/jsmind.draggable.js"></script>
+                <script type="text/javascript" src="/mindproject/public/js/jsmind.min.js"></script>
+                <script type="text/javascript" src="/mindproject/public/js/jsmind.draggable.js"></script>
                 <style type="text/css">
                 #jsmind_container{ 
                     width:500px;
