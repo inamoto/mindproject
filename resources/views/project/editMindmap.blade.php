@@ -52,7 +52,6 @@
                         var canvas = document.getElementById('jsmind_container');
                         //var stage = new createjs.Stage('canvas');
                         var header = document.getElementById('header');
-
                         // windowのリサイズ設定
                         var id;
                         $(window).on('resize', function(e){
@@ -60,6 +59,7 @@
                             id = setTimeout(function(){
                                 canvas.style.width=String($(e.target).width())+'px';
                                 canvas.style.height=String($(e.target).height()-canvas.offsetTop-10)+'px';
+                                _jm.resize();
                             }, 100);
                         });
                         $(window).trigger('resize');
