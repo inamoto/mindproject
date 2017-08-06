@@ -39,10 +39,10 @@
                                         <thead>
                                             <tr>
                                                 <td>
-                                                    <a href="/mindproject/public/project/editmm/{{$project->uuid}}" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-asterisk">Mindmap</i></a>
+                                                    <a href="/mindproject/public/project/mindmap/{{$project->uuid}}" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-asterisk">Mindmap</i></a>
                                                 </td>
                                                 <td>
-                                                    <a href="/mindproject/public/project/editga/{{$project->uuid}}" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-tasks">Gantt</i></a>
+                                                    <a href="/mindproject/public/project/gantt/{{$project->uuid}}" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-tasks">Gantt</i></a>
                                                 </td>
                                                 <td>
                                                     <form method="post" name="form_destroy{{$project->id}}" id="form_destroy{{$project->id}}" action="/mindproject/public/project/destroy/{{$project->uuid}}">

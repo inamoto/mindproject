@@ -45,7 +45,7 @@ Route::post('project/create', 'ProjectController@create');
 //            'middleware' => 'auth', 
 //            'uses' => 'ProjectController@editMindmap',
 //            ]);
-Route::get('project/editmm/{uuid}', [
+Route::get('project/mindmap/{uuid}', [
             'middleware' => 'auth', 
             'uses' => 'ProjectController@editMindmap',
             ]);
@@ -58,7 +58,7 @@ Route::post('project/tomm', 'ProjectController@toMindmap');
 //            'middleware' => 'auth', 
 //            'uses' => 'ProjectController@editGantt',
 //            ]);
-Route::get('project/editga/{uuid}', [
+Route::get('project/gantt/{uuid}', [
             'middleware' => 'auth', 
             'uses' => 'ProjectController@editGantt',
             ]);

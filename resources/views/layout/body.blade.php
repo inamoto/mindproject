@@ -24,7 +24,7 @@
         </div>
     </div>
     <?php 
-        $isEditGantt = (strpos($_SERVER["REQUEST_URI"],'editga'));
+        $isEditGantt = (strpos($_SERVER["REQUEST_URI"],'gantt'));
         if(!$isEditGantt){
             echo '<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>';
         }

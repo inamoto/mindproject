@@ -43,7 +43,7 @@ class ProjectController extends Controller
             'mindmap'=> $mindmap,
             'gantt'=>$gantt
         ]);
-        $path='/project/editmm/'.$uuid;
+        $path='/project/mindmap/'.$uuid;
         return redirect()->to($path);
     }
     /**
@@ -102,7 +102,7 @@ class ProjectController extends Controller
             \Session::flash('flash_message', $project->title." was saved");
 
         });
-        $path = sprintf('project/editga/%s', $uuid);
+        $path = sprintf('project/gantt/%s', $uuid);
         return redirect()->to($path);
     } 
 
@@ -148,7 +148,7 @@ class ProjectController extends Controller
             \Session::flash('flash_message', $project->title." was saved");
 
         });
-        $path = sprintf('project/editmm/%s', $uuid);
+        $path = sprintf('project/mindmap/%s', $uuid);
        return redirect()->to($path);
     } 
 
