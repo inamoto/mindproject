@@ -3,13 +3,13 @@
                     <table>
                         <tr>
                             <td>
-                                <a class="btn btn-primary btn-s" onclick="onAddChild()"><i class="glyphicon glyphicon-plus">Child</i></a>
-                                <a class="btn btn-primary btn-s" onclick="onAddBrother()"><i class="glyphicon glyphicon-plus">Brother</i></a>
+                                <a class="btn btn-primary btn-xs" onclick="onAddChild()"><i class="glyphicon glyphicon-plus">Child</i></a>
+                                <a class="btn btn-primary btn-xs" onclick="onAddBrother()"><i class="glyphicon glyphicon-plus">Bros.</i></a>
                             
-                                <a class="btn btn-primary btn-s" onclick="onDeleteNode()"><i class="glyphicon glyphicon-trash">Remove</i></a>
-                                <a class="btn btn-primary btn-s" id="zoom-in-button" onclick="onZoomIn()"><i class="glyphicon glyphicon-zoom-in"></i></a>
-                                <a class="btn btn-primary btn-s" id="zoom-out-button" onclick="onZoomOut()"><i class="glyphicon glyphicon-zoom-out"></i></a>
-                            <td></td>
+                                <a class="btn btn-primary btn-xs" onclick="onDeleteNode()"><i class="glyphicon glyphicon-trash"></i></a>
+                                <a class="btn btn-primary btn-xs" id="zoom-in-button" onclick="onZoomIn()"><i class="glyphicon glyphicon-zoom-in"></i></a>
+                                <a class="btn btn-primary btn-xs" id="zoom-out-button" onclick="onZoomOut()"><i class="glyphicon glyphicon-zoom-out"></i></a>
+                            </td>
                             <td>
                                 <form method="post" name="form_save" id="form_save" action="/mindproject/public/project/postmm">
                                     <input type="hidden" name="_token" value="{{csrf_token()}}">
@@ -17,7 +17,7 @@
                                     <input type="hidden" name="mindmap" id="mindmap" value="">
                                     <input type="hidden" name="ganttData" id="ganttData" value="">
                                     <input type="hidden" name="path" id="path" value="{{ Request::path()}}">
-                                    <a class="btn btn-primary btn-s" onclick=onSave();><i class="glyphicon glyphicon-floppy-save">Save</i></a>
+                                    <a class="btn btn-primary btn-xs" onclick=onSave();><i class="glyphicon glyphicon-floppy-save"></i></a>
                                 </form>
                             </td>
                             <td>
@@ -27,7 +27,7 @@
                                     <input type="hidden" name="mindmap2" id="mindmap2" value="">
                                     <input type="hidden" name="ganttData2" id="ganttData2" value="">
                                     <input type="hidden" name="path2" id="path2" value="{{ Request::path()}}">
-                                    <a class="btn btn-success btn-s" onclick=onToGantt();><i class="glyphicon glyphicon-tasks">Ganttchart</i></a>
+                                    <a class="btn btn-success btn-xs" onclick=onToGantt();><i class="glyphicon glyphicon-tasks">Gantt</i></a>
                                 </form>
                             </td>
                         </tr>

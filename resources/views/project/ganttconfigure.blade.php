@@ -1,34 +1,6 @@
 
 
 <div id="gantEditorTemplates" style="display:none;">
-<div class="__template__" type="GANTBUTTONS"><!--
-    <div class="buttons">
-      <button onclick="$('#workSpace').trigger('addAboveCurrentTask.gantt');return false;" class="button textual icon requireCanWrite requireCanAdd" title="insert above"><span class="teamworkIcon">l</span></button>
-      <button onclick="$('#workSpace').trigger('addBelowCurrentTask.gantt');return false;" class="button textual icon requireCanWrite requireCanAdd" title="insert below"><span class="teamworkIcon">X</span></button>
-      <span class="ganttButtonSeparator requireCanWrite requireCanInOutdent"></span>
-      <button onclick="$('#workSpace').trigger('outdentCurrentTask.gantt');return false;" class="button textual icon requireCanWrite requireCanInOutdent" title="un-indent task"><span class="teamworkIcon">.</span></button>
-      <button onclick="$('#workSpace').trigger('indentCurrentTask.gantt');return false;" class="button textual icon requireCanWrite requireCanInOutdent" title="indent task"><span class="teamworkIcon">:</span></button>
-      <span class="ganttButtonSeparator requireCanWrite requireCanMoveUpDown"></span>
-      <button onclick="$('#workSpace').trigger('moveUpCurrentTask.gantt');return false;" class="button textual icon requireCanWrite requireCanMoveUpDown" title="move up"><span class="teamworkIcon">k</span></button>
-      <button onclick="$('#workSpace').trigger('moveDownCurrentTask.gantt');return false;" class="button textual icon requireCanWrite requireCanMoveUpDown" title="move down"><span class="teamworkIcon">j</span></button>
-
-      <span class="ganttButtonSeparator requireCanWrite"></span>
-      <button onclick="$('#workSpace').trigger('deleteCurrentTask.gantt');return false;" class="button textual icon delete requireCanWrite" title="Delete"><span class="teamworkIcon">&cent;</span></button>
-
-      <span class="ganttButtonSeparator requireCanAddIssue"></span>
-      <button onclick="$('#workSpace').trigger('addIssue.gantt');return false;" class="button textual icon requireCanAddIssue" title="add issue / todo"><span class="teamworkIcon">i</span></button>
-    <span class="ganttButtonSeparator"></span>
-      <button onclick="$('#workSpace').trigger('zoomMinus.gantt'); return false;" class="button textual icon " title="zoom out"><span class="teamworkIcon">)</span></button>
-      <button onclick="$('#workSpace').trigger('zoomPlus.gantt');return false;" class="button textual icon " title="zoom in"><span class="teamworkIcon">(</span></button>
-    <span class="ganttButtonSeparator"></span>
-      <button onclick="ge.gantt.showCriticalPath=!ge.gantt.showCriticalPath; ge.redraw();return false;" class="button textual icon requireCanSeeCriticalPath" title="CRITICAL_PATH"><span class="teamworkIcon">&pound;</span></button>
-    <span class="ganttButtonSeparator requireCanSeeCriticalPath"></span>
-      <button onclick="ge.splitter.resize(.1);return false;" class="button textual icon" ><span class="teamworkIcon">F</span></button>
-      <button onclick="ge.splitter.resize(50);return false;" class="button textual icon" ><span class="teamworkIcon">O</span></button>
-      <button onclick="ge.splitter.resize(100);return false;" class="button textual icon"><span class="teamworkIcon">R</span></button>
-
-    </div></div>
-  --></div>
 
 <div class="__template__" type="TASKSEDITHEAD"><!--
   <table class="gdfTable" cellspacing="0" cellpadding="0">
@@ -45,7 +17,8 @@
       <th class="gdfColHeader gdfResizable" style="width:0px;">dur.</th>
       <th class="gdfColHeader gdfResizable" style="width:20px;">%</th>
       <th class="gdfColHeader gdfResizable requireCanSeeDep" style="width:0px;">depe.</th>
-      <th class="gdfColHeader gdfResizable" style="width:1000px; text-align: left; padding-left: 10px;">assignees</th>
+      <th class="gdfColHeader gdfResizable" style="width:200px; text-align: left; padding-left: 10px;">assignees</th>
+      <th class="gdfColHeader gdfResizable" style="width:1000px; text-align: left; padding-left: 10px;">memo</th>
     </tr>
     </thead>
   </table>
@@ -67,6 +40,7 @@
     <td class="gdfCell"><input type="text" name="duration" autocomplete="off" value="(#=obj.duration#)"></td>
     <td class="gdfCell"><input type="text" name="progress" class="validated" entrytype="PERCENTILE" autocomplete="off" value="(#=obj.progress?obj.progress:''#)" (#=obj.progressByWorklog?"readOnly":""#)></td>
     <td class="gdfCell requireCanSeeDep"><input type="text" name="depends" autocomplete="off" value="(#=obj.depends#)" (#=obj.hasExternalDep?"readonly":""#)></td>
+    <td class="gdfCell taskAssigs">(#=obj.getAssigsString()#)</td>
     <td class="gdfCell taskAssigs">(#=obj.getAssigsString()#)</td>
   </tr>
   --></div>

@@ -1,6 +1,5 @@
 @extends('layout.body')
 @section('content')
-                <div class="container">
                     <table>
                         <tr>
                             <td>
@@ -8,8 +7,15 @@
                                     <input type="hidden" name="title" id="title"  value="{{$project->title}}">
                                     <input type="hidden" name="_token" value="{{csrf_token()}}">
                                     <input type="hidden" name="gantt" id="gantt" value="">
+                                    
                                     <input type="hidden" name="path" id="path" value="{{ Request::path()}}">
-                                    <a class="btn btn-primary btn-xs" onclick=onSave();><i class="glyphicon glyphicon-floppy-save">Save</i></a>
+                                    <a class="btn btn-primary btn-xs" onclick="ge.splitter.resize(.1);return false;"><i class="glyphicon glyphicon-step-backward" aria-hidden="true"></i></a>
+                                    <a class="btn btn-primary btn-xs" onclick="ge.splitter.resize(50);return false;"><i class="glyphicon glyphicon-resize-horizontal" aria-hidden="true"></i></a>
+                                    <a class="btn btn-primary btn-xs" onclick="ge.splitter.resize(100);return false;"><i class="glyphicon glyphicon-step-forward" aria-hidden="true"></i></a>
+                                    <a class="btn btn-primary btn-xs" onclick="$('#workSpace').trigger('zoomMinus.gantt'); return false;"><i class="glyphicon glyphicon-zoom-in"></i></a>
+                                    <a class="btn btn-primary btn-xs" onclick="$('#workSpace').trigger('zoomPlus.gantt'); return false;"><i class="glyphicon glyphicon-zoom-out"></i></a>
+
+                                    <a class="btn btn-primary btn-xs" onclick=onSave();><i class="glyphicon glyphicon-floppy-save"></i></a>
                                 </form>
                             </td>
                             <td>
@@ -24,7 +30,6 @@
                             </td>
                         </tr>
                     </table>
-                </div>
                 <div id="workSpace" style="padding:0px; overflow-y:auto; overflow-x:hidden;border:1px solid #e5e5e5;position:relative;margin:0 5px"></div>
                 @include('project.ganttconfigure')
                 <form id="gimmeBack" style="display:none;" action="../gimmeBack.jsp" method="post" target="_blank"><input type="hidden" name="prj" id="gimBaPrj"></form>
