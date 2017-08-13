@@ -62,7 +62,7 @@
                                                     <a href="/mindproject/public/project/gantt/{{$project->uuid}}" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-tasks">Gantt</i></a>
                                                 </td>
                                                 <td>
-                                                    <a href="/mindproject/public/project/csv/{{$project->uuid}}" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-tasks">Export</i></a>
+                                                    <a href="/mindproject/public/project/csv/{{$project->uuid}}" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-export">Export</i></a>
                                                 </td>
                                                 <td>
                                                     <form method="post" name="form_destroy{{$project->id}}" id="form_destroy{{$project->id}}" action="/mindproject/public/project/destroy/{{$project->uuid}}">
