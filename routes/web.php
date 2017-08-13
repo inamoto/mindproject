@@ -68,7 +68,14 @@ Route::post('project/toga','ProjectController@toGantt');
 Route::get('/', 'ProjectController@index')->middleware('auth');
 //Route::get('/', ['middleware' => 'auth','uses' => 'ProjectController@index',]);
 
-
+Route::get('project/csv/{uuid}',[
+            'middleware' =>'auth',
+            'uses' => 'ProjectController@exportProject',
+            ]);
+Route::post('project/csv',[
+            'middleware' =>'auth',
+            'uses' => 'ProjectController@importProject',
+            ]);
 
 Auth::routes();
 

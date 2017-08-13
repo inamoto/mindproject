@@ -1,13 +1,15 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
+use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Response;
 use Ramsey\Uuid\Uuid;
 use App\Project;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use DB;
+use Maatwebsite\Excel\Facades\Excel;
 use App\User;
 
 class ProjectController extends Controller
@@ -142,15 +144,76 @@ class ProjectController extends Controller
         //$project->mindmap=$mm;
         $project->title=$title;
         $project->gantt = $request->input('ganttData2');
-        //echo $project;
         DB::transaction(function() use($project){
             $project->save();
             \Session::flash('flash_message', $project->title." was saved");
-
         });
         $path = sprintf('project/mindmap/%s', $uuid);
-       return redirect()->to($path);
+        return redirect()->to($path);
     } 
+    public function importProject(Request $request){
+        $file = $request->file('csvfile');
+        $path = $file->getRealPath();
+        //echo $path;
+        $file_handler = fopen($path, "r");
+        $array = fgetcsv($file_handler);
+        //print_r($array);
+        $user = \Auth::user();
+        $uuid = Uuid::uuid1()->toString();
+        $title=$array[3];
+        $mindmap=$array[4];
+        $gantt=$array[5];        
+        $project = Project::create([
+            'uuid' => $uuid,
+            'title' => $title,
+            'userid' => $user->id,
+            'mindmap'=> $mindmap,
+            'gantt'=>$gantt
+        ]);
+        
+
+        //$rows[0]='';
+        //foreach ($rows as $row){
+         // Project::create($row);
+        //}
+        return redirect()->to('');
+    }
+    public function exportProject(){
+        $url = (empty($_SERVER['HTTPS']) ? 'http://' : 'https://').$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+        $uuid = basename($url);
+        $project = Project::where('uuid', $uuid)->get()->first();
+        $pr = $project->toArray();
+        $stream = fopen('php://output','w');
+        fputcsv($stream, $pr);
+        if($project){
+            //echo "ok";
+            //echo $project;
+            //echo $project->title;
+            //DB::transaction(function() use($project){
+            //    \Session::flash('flash_message', $project->title." was exported");
+            //});
+            
+        } else {
+            DB::transaction(function() use($project){
+                \Session::flash("Project was not found");
+            });
+        }
+        $cd = 'attachment; filename='.$project->title.".csv";
+        $headers = array(
+            'Content-Type' => 'text/csv',
+            'Content-Disposition' => $cd,
+        );
+
+        return Response::make('/', 200, $headers);
+        //return redirect()->to('');
+
+        //return 
+        
+        //DB::transaction(function() use($project){
+            //$project->save();
+           // \Session::flash('flash_message', $project->title." was exported");
+        //});
+    }
 
 
     /**
