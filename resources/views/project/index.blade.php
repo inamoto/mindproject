@@ -3,7 +3,7 @@
                 <script>
                     function onDestroyButton(e) {
                         'use strict';
-                        if (confirm('Are you sure to delete this project?')) 
+                        if (confirm('Are you sure?')) 
                         {
                             var form = 'form_destroy'+e;
                             document.getElementById(form).submit();
@@ -27,13 +27,13 @@
                                             <td>
                                                 <form method="post" action="/mindproject/public/project/create">
                                                     <input type="hidden" name="_token" value="{{csrf_token()}}">
-                                                    <input type="submit" class="btn btn-primary btn-xL" value="+ New Project">   
+                                                    <input type="submit" class="btn btn-primary btn-xs" value="+ New">   
                                                 </form>
                                             </td>                                            
                                             <td>
                                                 <form method="POST" action="/mindproject/public/project/csv" id="form_import" enctype="multipart/form-data" style="display: inline">
                                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                    <label class="btn btn-primary btn-xL">
+                                                    <label class="btn btn-primary btn-xs">
                                                         + Import
                                                         <input type="file" name="csvfile" id="csvfile", style="display:none" accept="text/csv" onchange=document.getElementById('form_import').submit();>
                                                     </label>

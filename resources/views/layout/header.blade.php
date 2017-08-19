@@ -9,10 +9,11 @@
 				            <span class="icon-bar"></span>
 				            <span class="icon-bar"></span>
 			            </button>
-			            <a class="navbar-brand" href="/mindproject/public/home">to Dashboard</a>
+			            <a class="navbar-brand" href="/mindproject/public/home">Mindproject</a>
 		            </div>
                     <div class="collapse navbar-collapse" id="navbarEexample">
                         <ul class="nav navbar-nav">
+                            
                             @if(Auth::guest())
                                   <li><a href="{{ url('login') }}">Login</a></li>
                             @endif

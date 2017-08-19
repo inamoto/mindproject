@@ -5,10 +5,13 @@
                             <td>
                                 <a class="btn btn-primary btn-xs" onclick="onAddChild()"><i class="glyphicon glyphicon-plus">Child</i></a>
                                 <a class="btn btn-primary btn-xs" onclick="onAddBrother()"><i class="glyphicon glyphicon-plus">Bros.</i></a>
-                            
                                 <a class="btn btn-primary btn-xs" onclick="onDeleteNode()"><i class="glyphicon glyphicon-trash"></i></a>
+                                <a class="btn btn-primary btn-xs" id="change-foreground"><i class="glyphicon glyphicon-text-color"></i></a>
+                                <a class="btn btn-primary btn-xs" id="change-background"><i class="glyphicon glyphicon-text-background"></i></a>
+                                <!--<a class="btn btn-primary btn-xs" id="colorpicker1" ><i class="glyphicon glyphicon-zoom-in"></i></a>-->
                                 <a class="btn btn-primary btn-xs" id="zoom-in-button" onclick="onZoomIn()"><i class="glyphicon glyphicon-zoom-in"></i></a>
                                 <a class="btn btn-primary btn-xs" id="zoom-out-button" onclick="onZoomOut()"><i class="glyphicon glyphicon-zoom-out"></i></a>
+
                             </td>
                             <td>
                                 <form method="post" name="form_save" id="form_save" action="/mindproject/public/project/postmm">
@@ -37,20 +40,22 @@
                 </div>
                 <script type="text/javascript" src="/mindproject/public/js/jsmind.min.js"></script>
                 <script type="text/javascript" src="/mindproject/public/js/jsmind.draggable.js"></script>
-                <style type="text/css">
-                #jsmind_container{ 
-                    width:500px;
-                    height:500px;
-                    border:solid 1px #ccc;
-                    background:#fAfAfA;
-                    /*background:#ffffff;*/
-                }
-                </style>
-                <script type="text/javascript">
-                    
-                    window.onload = function(){
+                <link type="text/css" href="/mindproject/public/css/jquery.simple-color-picker.css" rel="stylesheet" />
+                <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'></script>
+                <script type="text/javascript" src="/mindproject/public/js/jquery.simple-color-picker.js"></script>
+	            <script type="text/javascript">
+		            $(document).ready(function(e) {
+                        //$('change-foregrdound').simpleColorPicker({
+
+                        ///});
+                        //aaa=$('button$change-foreground');
+                        //.simpleColorPicker({ 
+                            //onChangeColor: function(color) { 
+                              //  $('label#color-result').text(color); } });
                         var canvas = document.getElementById('jsmind_container');
-                        //var stage = new createjs.Stage('canvas');
+                        canvas.style.width=window.parent.screen.width+'px';
+                        canvas.style.height=String($(e.target).height()-canvas.offsetTop-10)+'px';
+
                         var header = document.getElementById('header');
                         // windowのリサイズ設定
                         var id;
@@ -63,6 +68,25 @@
                             }, 100);
                         });
                         $(window).trigger('resize');
+                        shortcut.add("Ctrl+s",function() {
+                            onSave();
+                        });
+		            });
+	            </script>
+
+                <style type="text/css">
+                #jsmind_container{ 
+                    width:100%;
+                    height:100%;
+                    border:solid 1px #ccc;
+                    background:#fAfAfA;
+                    /*background:#ffffff;*/
+                }
+                </style>
+                <script type="text/javascript">
+                    
+                    window.onload = function(){
+                        
                     }
 
                     function insertUpdatedTask(mind_data, gantt_task, taskArry){
