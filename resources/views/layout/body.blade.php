@@ -29,7 +29,7 @@
                 <button type="button" class="close" data-dismiss="alert">×</button>
                 {{ Session::get('flash_message') }}
             </div>
-            <script type="txt/javascript">
+            <script type="text/javascript">
                 setTimeout('document.getElementsByClassName("alert")[0].style.display="none"',2000)
             </script>
 
