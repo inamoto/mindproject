@@ -65,9 +65,11 @@
                                                     <a href="/mindproject/public/project/csv/{{$project->uuid}}" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-export">Export</i></a>
                                                 </td>
                                                 <td>
-                                                    <form method="post" name="form_destroy{{$project->id}}" id="form_destroy{{$project->id}}" action="/mindproject/public/project/destroy/{{$project->uuid}}">
+                                                <!--<a class="btn btn-large btn-xs" data-toggle="confirmation" data-original-title="" title="">Click to toggle confirmation</a>-->
+                                                    <form method="post" name="form_remove{{$project->id}}" id="form_remove{{$project->id}}" action="/mindproject/public/project/destroy/{{$project->uuid}}">
                                                         <input type="hidden" name="_token" value="{{csrf_token()}}">
-                                                        <a class="btn btn-danger btn-xs" onclick=onDestroyButton({{$project->id}});><i class="glyphicon glyphicon-trash">Remove</i></a>
+                                                        <!--<a class="btn btn-danger btn-xs" data-toggle="confirmation" onclick=onDestroyButton({{$project->id}});><i class="glyphicon glyphicon-trash">Remove</i></a>-->
+                                                        <a class="btn btn-danger btn-xs" id="{{$project->id}}" data-toggle="confirmation"><i class="glyphicon glyphicon-trash">Remove</i></a>
                                                     </form>       
 
                                                 </td>
@@ -80,5 +82,4 @@
                         </tbody>
                     </table>
                 </div>
-
 @endsection
